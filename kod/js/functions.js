@@ -50,8 +50,6 @@ function create_filter_element (data) {
   const content = data.textContent;
 
   const new_dom_element = document.createElement("li");
-  console.log(new_dom_element);
-  console.log(create_subjects_filter);
   new_dom_element.classList.add(data.class);
   parent.appendChild(new_dom_element);
   new_dom_element.textContent = content;
