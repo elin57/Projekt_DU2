@@ -2,7 +2,7 @@
 // G
 // CODE According to specification
 function click_filter_element (event) {
-
+  console.log(event);
   /*
     ARGUMENTS
       event: event-object created when user clicks on one of the filter elements.
