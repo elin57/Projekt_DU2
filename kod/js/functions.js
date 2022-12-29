@@ -184,8 +184,24 @@ function create_language_filter () {
 
 // G / VG (see details in specification)
 // CODE according to specifications
+
 function create_programme (programme) {
   
+  let programme_element = document.createElement("div");
+  let parent = document.querySelector("#programmes > ul");
+  parent.appendChild(programme_element);
+  programme_element.classList.add("programme");
+  programme_element.innerHTML = `
+  <div>
+    <p>${programme["name"]}</p>
+  </div>
+  `;
+  
+  let array = read_filters();
+  console.log(array);
+  
+  array_each(PROGRAMMES, create_programme);
+
   /*
 
     ARGUMENT
