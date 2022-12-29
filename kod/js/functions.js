@@ -2,7 +2,16 @@
 // G
 // CODE According to specification
 function click_filter_element (event) {
-
+  
+  if(event.originalTarget.classList[0] === "selected") {
+    event.originalTarget.classList.toggle("selected");
+    event.originalTarget.classList.add("unselected");
+  } else {
+    event.originalTarget.classList.remove("unselected");
+    event.originalTarget.classList.toggle("selected");
+  }
+  console.log(event);
+  update_programmes();
   /*
     ARGUMENTS
       event: event-object created when user clicks on one of the filter elements.
