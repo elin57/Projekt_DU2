@@ -195,8 +195,8 @@ function create_language_filter () {
 // CODE according to specifications
 
 function create_programme (programme) {
-  
-  let programme_element = document.createElement("div");
+ 
+  //let programme_element = document.createElement("li");
   let parent = document.querySelector("#programmes > ul");
   parent.appendChild(programme_element);
   programme_element.classList.add("programme");
@@ -205,11 +205,11 @@ function create_programme (programme) {
     <p>${programme["name"]}</p>
   </div>
   `;
+
+  /*let array = read_filters();
+  console.log(array);*/
   
-  let array = read_filters();
-  console.log(array);
   
-  array_each(PROGRAMMES, create_programme);
 
   /*
 
@@ -238,7 +238,44 @@ function create_programme (programme) {
 // G
 // CODE according to the specification
 function update_programmes () {
+  let element = document.querySelectorAll("#programmes li");
+  for(let i = 0; i < element.length; i++) {
+    element[i].remove();
+  }
 
+  let array = read_filters();
+  console.log(array);
+  for(let i = 0; i < PROGRAMMES.length; i++) {
+    let programme_object = PROGRAMMES[i];
+    for(let ii = 0; ii < array.length; ii++) {
+      let array_object = array[ii];
+      if(programme_object.id === array_object.id) {
+        create_programme(programme_object);
+      } 
+    }
+  }
+  /*for(let i = 0; i < array.length; i++) {
+    if(PROGRAMMES[i].id === array[i].id) {
+      create_programme(PROGRAMMES[i]);
+      
+    }
+  }*/
+ /*let element = document.querySelectorAll("#programmes li");
+  console.log(element);
+  for(let i = 0; i < element.length; i++) {
+    if(array[i].id !== element[i]) {
+      element[i].remove();
+    }
+  }*/
+  
+  /*console.log(element[0]);
+  if(element.length > array.length) {
+    for(let i = array.length; i < element.length; i++) {
+      element[i].remove();
+    }
+  }
+  console.log(element);*/
+  
   /*
       NO ARGUMENTS
 
@@ -254,7 +291,6 @@ function update_programmes () {
   */
 
 }
-
 
 // G
 // WRITE SPECIFICATION
@@ -313,7 +349,6 @@ function read_filters () {
   programmes = array_filter(programmes, test_function_level);
 
 
-
   const language_selected_dom = document.querySelectorAll("#language_filter li.selected");
   const language_id_selected = [];
   function callback_add_languageID (dom_element) {
@@ -347,7 +382,6 @@ function read_filters () {
   programmes = array_filter(programmes, test_function_subject);
 
 
-
   const search_string = document.querySelector("#search_field input").value;
   if (search_string !== "") {
     function test_function (programme) {
@@ -355,6 +389,5 @@ function read_filters () {
     }
     programmes = array_filter(programmes, test_function);
   }
-
   return programmes;
 }
