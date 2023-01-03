@@ -9,8 +9,8 @@ function click_filter_element (event) {
   } else {
     event.originalTarget.classList.remove("unselected");
     event.originalTarget.classList.toggle("selected");
-    update_programmes();
   }
+  update_programmes();
   console.log(event);
   /*
     ARGUMENTS
@@ -196,13 +196,61 @@ function create_language_filter () {
 
 function create_programme (programme) {
  
-  //let programme_element = document.createElement("li");
+  let programme_element = document.createElement("li");
   let parent = document.querySelector("#programmes > ul");
   parent.appendChild(programme_element);
   programme_element.classList.add("programme");
+  
+  function find_uni(element) {
+    if(programme.universityID === element.id) {
+      return true;
+    }
+  }
+
+  function find_city(element) {
+    if(university.cityID === element.id) {
+      return true;
+    }
+  }
+
+  function find_country(element) {
+    if(city.countryID === element.id) {
+      return true;
+    }
+  }
+
+  function find_level(element) {
+    if(programme.levelID === element.id) {
+      return true;
+    }
+  }
+
+  function find_subject(element) {
+    if(programme.subjectID === element.id) {
+      return true;
+    }
+  }
+
+  function find_language(element) {
+    if(programme.languageID === element.id) {
+      return true;
+    }
+  }
+  
+  let university = array_find(UNIVERSITIES, find_uni);
+  let city = array_find(CITIES, find_city);
+  let country = array_find(COUNTRIES, find_country);
+  let level = array_find(LEVELS, find_level);
+  let subject = array_find(SUBJECTS, find_subject);
+  let language = array_find(LANGUAGES, find_language);
+
   programme_element.innerHTML = `
   <div>
-    <p>${programme["name"]}</p>
+    <p><b>${programme["name"]}</b><br>
+      ${university.name}<br>
+      ${country["name"]}, ${city.name}<br>
+      ${level.name}, ${subject.name}, ${language.name}
+    </p>
   </div>
   `;
 
@@ -254,6 +302,24 @@ function update_programmes () {
       } 
     }
   }
+
+  /*let text = document.querySelector("#programmes > p");
+  if(array.length > 0) {
+    text.style.display = "none";
+  } else {
+    text.style.display = "block";
+  }*/
+
+  /*text.remove();
+  console.log(text);
+  let text2 = document.createElement("p");
+  let parent = document.querySelector("#programmes");
+  parent.insertBefore(text2, parent.firstChild);
+  text = text2;
+  if(array.length === 0) {
+    text.textContent = "Inga program uppfyller nuvarande filter";
+  }*/
+
   /*for(let i = 0; i < array.length; i++) {
     if(PROGRAMMES[i].id === array[i].id) {
       create_programme(PROGRAMMES[i]);
