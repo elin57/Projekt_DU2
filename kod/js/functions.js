@@ -303,13 +303,13 @@ function update_programmes () {
     }
   }
 
-  /*let text = document.querySelector("#programmes > p");
+  let text = document.querySelector("#programmes > p");
   if(array.length > 0) {
     text.style.display = "none";
   } else {
     text.style.display = "block";
-  }*/
-
+  }
+  
   /*text.remove();
   console.log(text);
   let text2 = document.createElement("p");
@@ -319,28 +319,6 @@ function update_programmes () {
   if(array.length === 0) {
     text.textContent = "Inga program uppfyller nuvarande filter";
   }*/
-
-  /*for(let i = 0; i < array.length; i++) {
-    if(PROGRAMMES[i].id === array[i].id) {
-      create_programme(PROGRAMMES[i]);
-      
-    }
-  }*/
- /*let element = document.querySelectorAll("#programmes li");
-  console.log(element);
-  for(let i = 0; i < element.length; i++) {
-    if(array[i].id !== element[i]) {
-      element[i].remove();
-    }
-  }*/
-  
-  /*console.log(element[0]);
-  if(element.length > array.length) {
-    for(let i = array.length; i < element.length; i++) {
-      element[i].remove();
-    }
-  }
-  console.log(element);*/
   
   /*
       NO ARGUMENTS
