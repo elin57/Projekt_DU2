@@ -200,6 +200,7 @@ function create_programme (programme) {
   let parent = document.querySelector("#programmes > ul");
   parent.appendChild(programme_element);
   programme_element.classList.add("programme");
+  //programme_element.classList.add("show_more");
   
   function find_uni(element) {
     if(programme.universityID === element.id) {
@@ -244,21 +245,27 @@ function create_programme (programme) {
   let subject = array_find(SUBJECTS, find_subject);
   let language = array_find(LANGUAGES, find_language);
 
+  let percent = percenter(city.sun, 365);
+
   programme_element.innerHTML = `
   <div>
-    <p><b>${programme["name"]}</b><br>
-      ${university.name}<br>
-      ${country["name"]}, ${city.name}<br>
-      ${level.name}, ${subject.name}, ${language.name}
-    </p>
+    <b>${programme["name"]}</b><br>
+    ${university.name}<br>
+    ${city.name}, ${country["name"]}<br> 
+    ${level.name}, ${subject.name}, ${language.name}
+  </div>
+  <div class="more_info"></div>
+  <div class="bottom_programme"> 
+    ${city.name}, sun-index: ${city.sun} (${percent}%)
   </div>
   `;
 
-  /*let array = read_filters();
-  console.log(array);*/
-  
-  
+  let array_length = city.imagesNormal.length;
+  let index = get_random_number(array_length, 0);
 
+  let image = city.imagesNormal[index];
+  programme_element.style.backgroundImage = `url('../media/geo_images/${image}')`;
+  
   /*
 
     ARGUMENT
