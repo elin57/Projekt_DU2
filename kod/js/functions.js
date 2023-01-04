@@ -271,6 +271,39 @@ function update_programmes () {
   if(array.length === 0) {
     text.textContent = "Inga program uppfyller nuvarande filter";
   }*/
+
+  let first_div = document.querySelector("#top_images div:first-child");
+  let second_div = document.querySelector("#top_images div:nth-child(2)");
+  let third_div = document.querySelector("#top_images div:nth-child(3)");
+
+  let countries_and_button = document.querySelectorAll("#country_filter > *");
+  let other_containers = document.querySelectorAll(".filter_container");
+
+  for(let i = 0; i < other_containers.length; i++) {
+    other_containers[i].addEventListener("click", change_images);
+  }
+  for(let i = 0; i< countries_and_button.length; i++) {
+    countries_and_button[i].addEventListener("click", change_images);
+  }
+
+  change_images();
+  
+  function change_images() {
+    let i = 0;
+    let images_array = [];
+    while(i < 3) {
+      let countries_index = get_random_number(COUNTRIES.length, 0);
+      let object = COUNTRIES[countries_index];
+      let images_index = get_random_number(object.imagesNormal.length, 0);
+      let image = object.imagesNormal[images_index];
+      
+      images_array.push(image);
+      i = i + 1;
+    }
+    first_div.style.backgroundImage = `url('../media/geo_images/${images_array[0]}')`;
+    second_div.style.backgroundImage = `url('../media/geo_images/${images_array[1]}')`;
+    third_div.style.backgroundImage = `url('../media/geo_images/${images_array[2]}')`;
+  }
   
   /*
       NO ARGUMENTS
