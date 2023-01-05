@@ -210,7 +210,32 @@ function create_countries_cities_filters () {
 // ABSTRACT AND WRITE SPECIFICATION
 //    As you can see, all three functions below do basically the same thing.
 //    Abstract them to one function, and write the specification of that function.
+/*
+ SPECIFICATION - create_areas_filters()
+  ARGUMENTS
+    This function does not take any arguments.
+  SIDE EFFECTS
+    Creates filter elements through inner function create_area out of arrays
+    LEVELS, SUBJECTS, and LANGUAGES. Calls on inner function through three 
+    separate array_each(). Inside create_area a filter element is created by the use of
+    function create_filter_element.
+  NO RETURN VALUE
+  SPECIFICATION - create_area(element)
+  ARGUMENTS
+    element: one element from each array in each array_each function call.
+  SIDE EFFECTS
+    Creates filter element through create_filter_element(). For each 'element'
+    an object is sent as argument. 
+    The object contains the following keys:
+      parent: querySelector with argument "#" + variable + "_filter > ul".
+      class: "selected"
+      textContent: element.name
 
+    The function create_area checks which variable to send as value in the 
+    parent key by checking if 'element' is the same as array[index].
+    Function also gives the dataset.id of each DOM element the value of element.id.
+  NO RETURN VALUE
+*/
 function create_areas_filter() {
   function create_area(element) {
     let area;
