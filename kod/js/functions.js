@@ -135,7 +135,7 @@ function toggle_cities (event) {
 //            create_countries_cities_filters, create_country and create_city
 
 /* 
-  create_countries_cities_filters()
+  SPECIFICATION - create_countries_cities_filters()
   ARGUMENTS
     This function does not take any arguments.
   SIDE EFFECTS
@@ -144,7 +144,7 @@ function toggle_cities (event) {
     Calls on create_country with array_each.
   NO RETURN VALUE
 
-  create_country(country)
+  SPECIFICATION - create_country(country)
   ARGUMENTS
     country: each element in array COUNTRIES.
   SIDE EFFECTS
@@ -157,7 +157,7 @@ function toggle_cities (event) {
     Calls on create_city
   NO RETURN VALUE
 
-  create_city(city)
+  SPECIFICATION - create_city(city)
   ARGUMENTS
     city: element out of the new array that array_filter resulted in.
   SIDE EFFECTS
