@@ -133,6 +133,44 @@ function toggle_cities (event) {
 // WRITE SPECIFICATION
 // ATTENTION: You need to write the specification of all three functions:
 //            create_countries_cities_filters, create_country and create_city
+
+/* 
+  create_countries_cities_filters()
+  ARGUMENTS
+    This function does not take any arguments.
+  SIDE EFFECTS
+    Creates country containers based on array COUNTRIES through inner function create_country.
+    Also creates filter elements based on array CITIES through inner function create_city.
+    Calls on create_country with array_each.
+  NO RETURN VALUE
+
+  create_country(country)
+  ARGUMENTS
+    country: each element in array COUNTRIES.
+  SIDE EFFECTS
+    Creates DOM element out of 'country' that was sent as argument, with tag "div".
+    Gives it the classes "country" and "filter_container".
+    Gives it an id out of "country_" + "country.id".
+    Appends it as child to "#country_filter > div".
+    Creates a new array out of array CITIES by using array_filter and 
+    checking if country.id is the same as city.countryID.
+    Calls on create_city
+  NO RETURN VALUE
+
+  create_city(city)
+  ARGUMENTS
+    city: element out of the new array that array_filter resulted in.
+  SIDE EFFECTS
+    Creates filter element by calling create_filter_element and
+    sending an object as argument. The function call results in a 
+    DOM element.
+    The object sent as argument contains the following keys:
+      parent: querySelector with argument "#country_" + city.countryID + " > ul"
+      class: "selected"
+      textContent: city.name
+    This function also gives each DOM element dataset.id = city.id
+  NO RETURN VALUE 
+*/
 function create_countries_cities_filters () {
   function create_country (country) {
     const dom = document.createElement("div");
