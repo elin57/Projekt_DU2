@@ -90,11 +90,29 @@ function add_group_toggling (filter_container_dom) {
   
 }
 
-
 // VG
 // CODE according to specifications
 function toggle_cities (event) {
 
+  let elements = document.querySelectorAll(".country ul.filter_list li");
+
+  let button = document.querySelector("#country_filter > button");
+  button.addEventListener("click", switch_elements);
+  
+  function switch_elements() {
+    if(elements[0].classList[0] === "selected") {
+      for(let i = 0; i < elements.length; i++) {
+        elements[i].classList.remove("selected");
+        elements[i].classList.add("unselected");
+      }
+    } else {
+      for(let i = 0; i < elements.length; i++) {
+        elements[i].classList.remove("unselected");
+        elements[i].classList.add("selected");
+      }
+    }
+    update_programmes();
+  }
   /*
 
     ARGUMENTS
@@ -343,7 +361,6 @@ function update_programmes () {
       } 
     }
   }
-
   let text = document.querySelector("#programmes > p");
   if(array.length > 0) {
     text.style.display = "none";
