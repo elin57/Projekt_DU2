@@ -497,6 +497,24 @@ function update_programmes () {
 
 // Optional VG: Which parts of the function's code could be abstracted?
 //              Implement it
+/* 
+  SPECIFICATION - read_filters()
+    ARGUMENTS
+      This function does not take any arguments.
+    SIDE EFFECTS
+      Function read_filters puts id's of selected city elements into a new array. Then takes one 
+      integer from this array and checks if UNIVERSITIES[index].cityID === integer. If true the 
+      UNIVERSITIES[index] gets put into new array: universities. 
+      Then it checks if PROGRAMMES[index].universityID === universities[index].id. If true the object
+      from PROGRAMMES gets put into new array: programmes.
+      Function also puts id's from selected level, language and subject filter elements into their own arrays.
+      Then checks if the value from matching key in programmes[index] is included in each array of integers.
+      Each time this is checked, the "programmes" array is resulted in a new array.
+      Function read_filters() also checks if search field value is included in the "name" key of each "programmes" index.
+    RETURN VALUE
+      This function returns a new array of objects based on array PROGRAMMES after checking mentioned values.
+
+*/
 function read_filters () {
   
   const city_selected_dom = document.querySelectorAll("#country_filter li.selected");
@@ -505,6 +523,7 @@ function read_filters () {
   function callback_add_cityID (dom_element) {
     const id_as_integer = parseInt(dom_element.dataset.id);
     city_id_selected.push(id_as_integer);
+    console.log(city_id_selected);
   }
   array_each(city_selected_dom, callback_add_cityID);
 
