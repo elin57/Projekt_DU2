@@ -262,16 +262,6 @@ function update_programmes () {
     text.style.display = "block";
   }
 
-  /*text.remove();
-  console.log(text);
-  let text2 = document.createElement("p");
-  let parent = document.querySelector("#programmes");
-  parent.insertBefore(text2, parent.firstChild);
-  text = text2;
-  if(array.length === 0) {
-    text.textContent = "Inga program uppfyller nuvarande filter";
-  }*/
-
   let first_div = document.querySelector("#top_images div:first-child");
   let second_div = document.querySelector("#top_images div:nth-child(2)");
   let third_div = document.querySelector("#top_images div:nth-child(3)");
