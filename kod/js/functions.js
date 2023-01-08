@@ -11,7 +11,7 @@ function click_filter_element (event) {
     event.originalTarget.classList.toggle("selected");
   }
   update_programmes();
-  console.log(event);
+  
   /*
     ARGUMENTS
       event: event-object created when user clicks on one of the filter elements.
