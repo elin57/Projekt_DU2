@@ -475,7 +475,6 @@ function read_filters () {
   function callback_add_cityID (dom_element) {
     const id_as_integer = parseInt(dom_element.dataset.id);
     city_id_selected.push(id_as_integer);
-    console.log(city_id_selected);
   }
   array_each(city_selected_dom, callback_add_cityID);
 
