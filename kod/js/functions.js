@@ -190,7 +190,6 @@ function create_programme (programme) {
   let parent = document.querySelector("#programmes > ul");
   parent.appendChild(programme_element);
   programme_element.classList.add("programme");
-  //programme_element.classList.add("show_more");
   
   function find_uni(element) {
     if(programme.universityID === element.id) {
