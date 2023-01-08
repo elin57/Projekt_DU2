@@ -15,9 +15,6 @@
 
 
 // Create Filter Elements
-/*create_levels_filter();
-create_subjects_filter();
-create_language_filter();*/
 create_areas_filter();
 create_countries_cities_filters();
 
