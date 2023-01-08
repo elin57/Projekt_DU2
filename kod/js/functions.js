@@ -244,7 +244,7 @@ function update_programmes () {
   }
 
   let array = read_filters();
-  console.log(array);
+  
   for(let i = 0; i < PROGRAMMES.length; i++) {
     let programme_object = PROGRAMMES[i];
     for(let ii = 0; ii < array.length; ii++) {
