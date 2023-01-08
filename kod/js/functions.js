@@ -2,6 +2,16 @@
 // G
 // CODE According to specification
 function click_filter_element (event) {
+  
+  if(event.originalTarget.classList[0] === "selected") {
+    event.originalTarget.classList.toggle("selected");
+    event.originalTarget.classList.add("unselected");
+  } else {
+    event.originalTarget.classList.remove("unselected");
+    event.originalTarget.classList.toggle("selected");
+  }
+
+  update_programmes();
 
   /*
     ARGUMENTS
@@ -50,7 +60,7 @@ function create_filter_element (data) {
   const content = data.textContent;
 
   const new_dom_element = document.createElement("li");
-  new_dom_element.classList.add(data.class);
+  new_dom_element.classList.add(attribute);
   parent.appendChild(new_dom_element);
   new_dom_element.textContent = content;
   new_dom_element.addEventListener("click", click_filter_element);
