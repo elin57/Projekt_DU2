@@ -10,8 +10,9 @@ function click_filter_element (event) {
     event.originalTarget.classList.remove("unselected");
     event.originalTarget.classList.toggle("selected");
   }
+
   update_programmes();
-  
+
   /*
     ARGUMENTS
       event: event-object created when user clicks on one of the filter elements.
@@ -59,7 +60,7 @@ function create_filter_element (data) {
   const content = data.textContent;
 
   const new_dom_element = document.createElement("li");
-  new_dom_element.classList.add(data.class);
+  new_dom_element.classList.add(attribute);
   parent.appendChild(new_dom_element);
   new_dom_element.textContent = content;
   new_dom_element.addEventListener("click", click_filter_element);
