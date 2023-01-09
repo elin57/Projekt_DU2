@@ -1,6 +1,4 @@
 
-// G
-// CODE According to specification
 function click_filter_element (event) {
   
   if(event.originalTarget.classList[0] === "selected") {
@@ -31,9 +29,6 @@ function click_filter_element (event) {
   
 }
 
-
-// G
-// CODE according to specification
 function create_filter_element (data) {
 
   /*
@@ -69,9 +64,6 @@ function create_filter_element (data) {
 
 }
 
-
-// VG
-// CODE according to specification
 function add_group_toggling (filter_container_dom) {
 
   /*
@@ -91,8 +83,6 @@ function add_group_toggling (filter_container_dom) {
   
 }
 
-// VG
-// CODE according to specifications
 function toggle_cities (event) {
 
   let elements = document.querySelectorAll(".country ul.filter_list li");
@@ -130,10 +120,6 @@ function toggle_cities (event) {
 
 }
 
-
-// WRITE SPECIFICATION
-// ATTENTION: You need to write the specification of all three functions:
-//            create_countries_cities_filters, create_country and create_city
 
 /* 
   SPECIFICATION - create_countries_cities_filters()
@@ -207,10 +193,6 @@ function create_countries_cities_filters () {
 }
 
 
-// G
-// ABSTRACT AND WRITE SPECIFICATION
-//    As you can see, all three functions below do basically the same thing.
-//    Abstract them to one function, and write the specification of that function.
 /*
  SPECIFICATION - create_areas_filters()
   ARGUMENTS
@@ -269,8 +251,6 @@ function create_areas_filter() {
   array_each(LANGUAGES, create_area);
 }
 
-// G / VG (see details in specification)
-// CODE according to specifications
 
 function create_programme (programme) {
  
@@ -367,8 +347,6 @@ function create_programme (programme) {
 }
 
 
-// G
-// CODE according to the specification
 function update_programmes () {
   let element = document.querySelectorAll("#programmes li");
   for(let i = 0; i < element.length; i++) {
@@ -442,13 +420,7 @@ function update_programmes () {
 
 }
 
-// G
-// WRITE SPECIFICATION
-// You must understand how this function works. There will be questions about it
-// in the code review (kodredovisning)
 
-// Optional VG: Which parts of the function's code could be abstracted?
-//              Implement it
 /* 
   SPECIFICATION - read_filters()
     ARGUMENTS
@@ -465,7 +437,6 @@ function update_programmes () {
       Function read_filters() also checks if search field value is included in the "name" key of each "programmes" index.
     RETURN VALUE
       This function returns a new array of objects based on array PROGRAMMES after checking mentioned values.
-
 */
 function read_filters () {
   
